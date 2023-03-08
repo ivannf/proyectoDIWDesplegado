@@ -39,24 +39,24 @@
 
         <div class="row mb-4">
           <div class="col d-flex justify-content-center">
-            <a class="page-link" href="src\app\modules\forgot-password\forgot-password.component.html">¿Has olvidado la contraseña?</a>
+            <a class="page-link" href="/forgotPassword">¿Has olvidado la contraseña?</a>
           </div>
 
           <div class="col">
-            <button type="submit" class="btn text-bg-dark" onClick="window.open('src\app\modules\home\home.component.html')" [disabled]="(emailFormControl.hasError('email') || emailFormControl.hasError('required')) || (passwordFormControl.hasError('required'))" mat-raised-button>SIGUIENTE</button>
+            <button type="submit" class="btn text-bg-dark" onclick="location.href='/main'" [disabled]="(emailFormControl.hasError('email') || emailFormControl.hasError('required')) || (passwordFormControl.hasError('required'))" mat-raised-button>SIGUIENTE</button>
           </div>
         </div>
 
         <div class="row mb-4 mt-5">
           <div class="col">
             <p class="page-link mb-3">¿AÚN NO TE HAS REGISTRADO?</p>
-            <div><a href="src\app\modules\registration\registration.component.html" class="btn" mat-raised-button><strong>REGISTRARSE</strong></a></div>
+            <div><a href="/register" class="btn" mat-raised-button><strong>REGISTRARSE</strong></a></div>
           </div>
 
           <div class="col">
             <p class="page-link mb-3">ENTRA COMO INVITADO</p>
             <div>
-              <a href="src\app\modules\home\home.component.html" class="btn" mat-raised-button><strong>INVITADO</strong></a>
+              <a href="/main" class="btn" mat-raised-button><strong>INVITADO</strong></a>
             </div>
           </div>
         </div>
