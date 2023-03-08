@@ -20,7 +20,7 @@ jobs:
       with:
         # Se debe crear un ACCESS_TOKEN en la sección Developer Settings de las Opciones de tu Cuenta
         # Una vez creado hay que vincularlo con el repositorio en la sección Settings->Secrets and Variables -> Actions -> Repository Secrets
-        github_access_token: ${{ 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 }} 
+        github_access_token: ${{ secrets.ACCESS_TOKEN }} 
         # En esta variable se debe poner la configuración del despliegue del fichero angular.json que normalmente si no se han hecho cambios suele ser producción
         build_configuration: production
         # Es muy importante que base_href se corresponda con el nombre del repositorio empezando y terminando con /
