@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="modal-dialog m-5" id="fondoInicioSesion">
+    <div class="modal-content">
+      <h1 class="text-lg-center mt-5" id="exampleModalLabel">INICIAR SESIÓN</h1>
+      <form class="px-5 py-5" (ngSubmit)="onSubmit()" #loginForm="ngForm" >
+        <h4 class="text-lg-center" id="exampleModalLabel">Utilizar tu cuenta Runner</h4>
+        <div class="form-outline mb-4">
+          <div class="input-group">
+            <mat-form-field class="example-full-width">
+              <input type="email" class="text-lg-center" matInput [formControl]="emailFormControl"
+                [errorStateMatcher]="matcher" placeholder="CORREO ELECTRÓNICO" 
+                required
+                [(ngModel)]="model.email">
+              <mat-hint>Los errores apareceran al instante si existen!</mat-hint>
+              <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('required')">
+                El email es <strong>requerido</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="form-outline mb-4">
+          <div class="input-group">
+            <mat-form-field class="example-full-width">
+              <input type="password" class="text-lg-center" matInput [formControl]="passwordFormControl"
+                [errorStateMatcher]="matcher" placeholder="CONTRASEÑA"
+                required
+                [(ngModel)]="model.contra">
+              <mat-hint>Los errores apareceran al instante si existen!</mat-hint>
+              <mat-error *ngIf="passwordFormControl.hasError('required')">
+                La contraseña es <strong>requerida</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col d-flex justify-content-center">
+            <a class="page-link" href="/forgotPassword">¿Has olvidado la contraseña?</a>
+          </div>
+
+          <div class="col">
+            <button type="submit" class="btn text-bg-dark" onclick="location.href='/main'" [disabled]="(emailFormControl.hasError('email') || emailFormControl.hasError('required')) || (passwordFormControl.hasError('required'))" mat-raised-button>SIGUIENTE</button>
+          </div>
+        </div>
+
+        <div class="row mb-4 mt-5">
+          <div class="col">
+            <p class="page-link mb-3">¿AÚN NO TE HAS REGISTRADO?</p>
+            <div><a href="/register" class="btn" mat-raised-button><strong>REGISTRARSE</strong></a></div>
+          </div>
+
+          <div class="col">
+            <p class="page-link mb-3">ENTRA COMO INVITADO</p>
+            <div>
+              <a href="/main" class="btn" mat-raised-button><strong>INVITADO</strong></a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

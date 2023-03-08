@@ -1,0 +1,36 @@
+<mat-drawer-container class="bg-white">
+    <mat-drawer #drawer class="bg-secondary align-items-center">
+        <div class="d-grid gap-2">
+            <h1 class="text-white m-2">FILTRAR POR:</h1>
+            <button type="button" class="btn btn-dark m-2">Comunidad Autónoma</button>
+            <button type="button" class="btn btn-dark m-2">Provincia</button>
+            <button type="button" class="btn btn-dark m-2">Distancia (Km)</button>
+            <button type="button" class="btn btn-dark m-2">Eventos pasados</button>
+        </div>
+    </mat-drawer>
+    <mat-drawer-content>
+        <button mat-raised-button (click)="drawer.toggle()"><i class="bi bi-sliders2"></i></button>
+        <div class="container">
+            <div class="row">
+                <div class="col-5 mx-auto my-5" *ngFor="let card of cards">
+                    <mat-card>
+                        <img mat-card-image [src]="card.img" alt="Card image cap">
+                        <mat-card-content class="text-center">
+                            <mat-card-title>
+                                <a class="text-dark" href="/registroEvento">
+                                    <h1>{{card.title}}</h1>
+                                </a>
+                            </mat-card-title>
+
+                            <p>
+                                {{card.description}}
+                            </p>
+
+                            <button type="button" class="btn btn-dark">{{card.buttonText}}</button>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>

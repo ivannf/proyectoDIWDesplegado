@@ -1,0 +1,123 @@
+<div class="container">
+    <div class="modal-dialog m-5" id="fondoPagina">
+        <div class="modal-content">
+            <h1 class="text-center mt-5"><b>REGISTRO DE EVENTO</b></h1>
+            <form class="px-5 py-5">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-outline mb-4">
+                            <div class="input-group">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>DNI</mat-label>
+                                    <input type="text" matInput [formControl]="dniFormControl" [errorStateMatcher]="matcher"
+                                        placeholder="12345678X" [(ngModel)]="model.dni">
+                                    <mat-error *ngIf="dniFormControl.hasError('pattern') && !dniFormControl.hasError('required')">
+                                        Porfavor introduzca un DNI válido
+                                    </mat-error>
+                                    <mat-error *ngIf="dniFormControl.hasError('required')">
+                                        El DNI es <strong>requerido</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+        
+                        <div class="form-outline mb-4">
+                            <div class="input-group">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Nombre</mat-label>
+                                    <input type="text" matInput [formControl]="nombreFormControl" [errorStateMatcher]="matcher"
+                                        placeholder="Nombre" [(ngModel)]="model.nombre">
+                                    <mat-error *ngIf="nombreFormControl.hasError('required')">
+                                        El nombre es <strong>requerido</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+        
+                        <div class="form-outline mb-4">
+                            <div class="input-group">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Apellidos</mat-label>
+                                    <input type="text" matInput [formControl]="apellidosFormControl" [errorStateMatcher]="matcher"
+                                        placeholder="Apellidos" [(ngModel)]="model.apellidos">
+                                    <mat-error *ngIf="apellidosFormControl.hasError('required')">
+                                        Los apellidos son <strong>requeridos</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+        
+                        <div class="form-outline mb-4">
+                            <div class="input-group">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Dirección</mat-label>
+                                    <input type="text" matInput [formControl]="direccionFormControl" [errorStateMatcher]="matcher"
+                                        placeholder="Dirección" [(ngModel)]="model.direccion">
+                                    <mat-error *ngIf="direccionFormControl.hasError('required')">
+                                        La dirección es <strong>requerida</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div><div class="form-outline mb-4">
+                            <div class="input-group">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Club running</mat-label>
+                                    <input type="text" matInput [formControl]="clubRunningFormControl" [errorStateMatcher]="matcher"
+                                        placeholder="Club running" [(ngModel)]="model.clubRunning">
+                                    <mat-error *ngIf="clubRunningFormControl.hasError('required')">
+                                        El club running es <strong>requerido</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+        
+                        <div class="form-outline mb-4">
+                            <div class="input-group">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Talla de camiseta</mat-label>
+                                    <input type="text" matInput [formControl]="tallaFormControl" [errorStateMatcher]="matcher"
+                                        placeholder="XS-S-M-L-XL" [(ngModel)]="model.talla">
+                                    <mat-error *ngIf="tallaFormControl.hasError('pattern') && !tallaFormControl.hasError('required')">
+                                        Porfavor introduzca una talla válida
+                                    </mat-error>
+                                    <mat-error *ngIf="tallaFormControl.hasError('required')">
+                                        La talla es <strong>requerida</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+        
+                        <div class="form-outline mb-4">
+                            <div class="input-group">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Método de pago</mat-label>
+                                    <input type="text" matInput [formControl]="metodoFormControl" [errorStateMatcher]="matcher"
+                                        placeholder="Cuenta bancaria o Efectivo" [(ngModel)]="model.metodoPago">
+                                    <mat-error *ngIf="metodoFormControl.hasError('required')">
+                                        El método de pago es <strong>requerido</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 py-5">
+                        <img src="../../../assets/img/arco_triunfo.jpg" alt="Maratón de París" id="fotoEvento">
+                        <h2 class="text-lg-center mt-5"><b>EVENTO 1  FECHA: 24/03/2023</b></h2>
+                    </div>
+
+                    <div>
+                        <section>
+                            <button mat-raised-button id="boton" onClick="window.open('/register')" class="col-3">CREAR NUEVA CUENTA</button>
+                            <button mat-raised-button id="boton" onClick="window.open('/main')" [disabled]="(dniFormControl.hasError('pattern') || dniFormControl.hasError('required')) 
+                                                                                                || (nombreFormControl.hasError('required')) || (apellidosFormControl.hasError('required')) 
+                                                                                                || (direccionFormControl.hasError('required')) || (clubRunningFormControl.hasError('required')) 
+                                                                                                || (tallaFormControl.hasError('required')) || (tallaFormControl.hasError('pattern')) 
+                                                                                                || (metodoFormControl.hasError('required'))" class="col-3">ACEPTAR</button>
+                            <button mat-raised-button id="boton" onClick="window.open('/main')" class="col-3">CANCELAR</button>
+                        </section>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
